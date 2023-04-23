@@ -10,6 +10,14 @@ services:
     ports:
       - 8081:8080
       - 50000:50000
+    # When I use podman insted of docker, and init suggested plugins installation, 'java.net.UnknownHostException' occurred.
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+      - 1.1.1.1
+      - 1.0.0.1
+      - 9.9.9.9
+      - 149.112.112.112
     volumes:
       - jenkins_home:/var/jenkins_home
       - work:/work
