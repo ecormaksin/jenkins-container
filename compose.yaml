@@ -8,9 +8,6 @@ services:
     privileged: true
     environment:
       TZ: "Asia/Tokyo"
-    ports:
-      - 8081:8080
-      - 50000:50000
     # When I use podman insted of docker, and init suggested plugins installation, 'java.net.UnknownHostException' occurred.
     dns:
       - 8.8.8.8
