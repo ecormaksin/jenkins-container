@@ -5,6 +5,7 @@ services:
     build:
       context: ./jenkins
       dockerfile: Containerfile
+    privileged: true
     environment:
       TZ: "Asia/Tokyo"
     ports:
@@ -20,6 +21,10 @@ services:
       - 149.112.112.112
     volumes:
       - jenkins_home:/var/jenkins_home
+      # https://qiita.com/comefigo/items/6394a43b3bd97cde7b17
+      # https://github.com/docker/for-win/issues/1829
+      # need to execute '$Env:COMPOSE_CONVERT_WINDOWS_PATHS=1' before compose up
+      - /var/run/docker.sock:/var/run/docker.sock
       - work:/work
     restart: on-failure
 volumes:
